@@ -1,6 +1,21 @@
 public class Solution {
     public int RomanToInt(string s) {
         int temp = 0;
+        Hashtable romanvalue = new Hashtable();
+        Hashtable romanvalue1 = new Hashtable();
+        romanvalue.Add("I",1);
+        romanvalue.Add("V",5);
+        romanvalue.Add("X",10);
+        romanvalue.Add("L",50);
+        romanvalue.Add("C",100);
+        romanvalue.Add("D",500);
+        romanvalue.Add("M",1000);
+        romanvalue.Add("IV",4);
+        romanvalue.Add("IX",9);
+        romanvalue.Add("XL",40);
+        romanvalue.Add("XC",90);
+        romanvalue.Add("CD",400);
+        romanvalue.Add("CM",900);
         
         for (int i = 0; i<s.Length; i++)
         {
@@ -13,6 +28,16 @@ public class Solution {
                 switch(newsubstr)
                 {
                     case "IV":
+                    case "IX":
+                    case "XL":
+                    case "XC":
+                    case "CD":
+                    case "CM":
+                        temp = temp + (int)romanvalue[newsubstr];
+                        i ++;
+                        skip = true;
+                        break;
+                        /*case "IV":
                         temp += 4;
                         i ++;
                         skip = true;
@@ -41,12 +66,13 @@ public class Solution {
                         temp += 900;
                         i ++;
                         skip = true;
-                        break;                
+                        break;*/               
                 }
             }
             if(!skip)
             {
-                switch(s[i])
+                temp = temp + (int)romanvalue[new string(s[i],1)];
+                /*switch(s[i])
                 {
                     case 'I':
                         temp +=1;
@@ -69,7 +95,7 @@ public class Solution {
                     case 'M':
                         temp +=1000;
                         break;
-                }
+                }*/
             }
         }
         return temp;        
