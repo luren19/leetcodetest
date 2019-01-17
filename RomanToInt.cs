@@ -22,9 +22,9 @@ public class Solution {
             bool skip = false;
             if(i < s.Length -1)
             {
-                char[] substr = {s[i], s[i+1]};
-                string newsubstr = new string(substr);
-
+                //char[] substr = {s[i], s[i+1]};
+                //string newsubstr = new string(substr);
+                string newsubstr = s.Substring(i,2);
                 switch(newsubstr)
                 {
                     case "IV":
@@ -71,7 +71,7 @@ public class Solution {
             }
             if(!skip)
             {
-                temp = temp + (int)romanvalue[new string(s[i],1)];
+                temp = temp + (int)romanvalue[s.Substring(i,1)];
                 /*switch(s[i])
                 {
                     case 'I':
