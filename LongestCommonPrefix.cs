@@ -14,5 +14,20 @@ public class Solution {
         }
         return prefix;        
     }
+    
+    public string LongestCommonPrefix-VerticalScanning(string[] strs) 
+    {
+        if(strs.Length == 0) return "";
+        for(int i = 0; i<strs[0].Length; i++)
+        {
+            char c = strs[0][i];
+            for (int j = 1; j < strs.Length; j++)
+            {
+                if( i == strs[j].Length || c.CompareTo(strs[j][i]) != 0)
+                    return strs[0].Substring(0,i);
+            }
+        }
+        return strs[0];      
+    }
 }
 
