@@ -1,0 +1,74 @@
+public class Solution {
+    public int MyAtoi(string str) {
+        int sign = 0;
+        int result = 0;
+        for (int i = 0; i < str.Length; i++)
+        {
+            char temp = str[i];
+            int tempvalue = Convert.ToInt32(temp)-48;
+            //Console.WriteLine("original" + tempvalue);
+            if(temp == '-' || temp == '+' || (temp > 47 && temp <58))
+            {
+                if(sign == 0)
+                {
+                    if(temp == '-')
+                    {
+                        sign = -1;
+                    }
+                    else if(temp == '+')
+                    {
+                        sign = 1;
+                    }
+                    else
+                    {
+                        sign = 1;
+                        result = tempvalue;
+                        //Console.WriteLine("first value " + result );
+                    }                    
+                }
+                else
+                {
+                    if(temp == '-' || temp == '+')
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        if(sign == 1)
+                        {
+                            if(result > int.MaxValue / 10 
+                                || (result == int.MaxValue / 10 && tempvalue > 7))
+                            {
+                                return int.MaxValue;
+                            }
+                        }
+                           
+                        if(sign == -1)
+                        {
+                            if(result > int.MaxValue / 10 
+                                || (result == int.MaxValue / 10 && tempvalue > 8))
+                            {
+                                return int.MinValue;
+                            }
+                        }
+                        //Console.WriteLine("result" + result);   
+                        result = result * 10 + tempvalue;
+                    }
+                }
+                
+            }
+            else if(sign == 0 && temp == ' ')
+            {
+                continue;
+            }
+            else
+            {
+                break;
+            }
+                        
+        }
+
+        return result * sign;
+        
+    }
+}
