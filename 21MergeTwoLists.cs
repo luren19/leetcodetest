@@ -7,7 +7,7 @@
  * }
  */
 public class Solution {
-    public ListNode MergeTwoLists(ListNode l1, ListNode l2) {
+    public ListNode MergeTwoLists1(ListNode l1, ListNode l2) {
         if(l1 == null)
         {
             return l2;
@@ -54,6 +54,23 @@ public class Solution {
         {
             temp.next = l2;
         }
+
+        return result;
+        
+    }
+    public ListNode MergeTwoLists2(ListNode l1, ListNode l2) {
+        if(l1 == null)
+        {
+            return l2;
+        }
+        if(l2 == null)
+        {
+            return l1;
+        }
+            
+        ListNode result = (l1.val <= l2.val)?l1:l2;
+        ListNode temp = (l1.val <= l2.val)?l2:l1;
+        result.next = MergeTwoLists(result.next,temp);
 
         return result;
         
