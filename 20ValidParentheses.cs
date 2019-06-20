@@ -5,7 +5,8 @@ public class Solution {
             return true;
         }
         Stack<char> temp = new Stack<char>();
-        Hashtable mappings = new Hashtable();
+        Dictionary<char, char> mappings = new Dictionary<char, char>();
+        //Hashtable mappings = new Hashtable();
         mappings.Add(')','(');
         mappings.Add('}','{');
         mappings.Add(']','[');
@@ -18,7 +19,8 @@ public class Solution {
                 {
                     return false;
                 }
-                if(temp.Pop() != Convert.ToChar(mappings[c]))
+                //if(temp.Pop() != Convert.ToChar(mappings[c]))
+                if(temp.Pop() != mappings[c])
                 {
                     return false;
                 }
