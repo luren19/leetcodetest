@@ -34,4 +34,40 @@ public class Solution {
         }
         return i+1;        
     }
+
+    public int RemoveDuplicates2(int[] nums) {
+        int limit=2;
+        if(nums.Length <=limit)
+        {
+            return nums.Length;
+        }        
+        int i = 1;
+        int count = 1;
+        int temp = nums[0];
+        for(int j = 1; j<nums.Length;j++)
+        {
+            if(nums[j]!=temp)
+            {                
+                count = 1;
+                nums[i]=nums[j];
+                i++;
+                temp = nums[j];                
+            }
+            else
+            {
+                if(count>=limit)
+                {
+                    continue;
+                }
+                else
+                {
+                    count++;
+                    nums[i]=temp;
+                    i++;
+                }
+            }                
+        }
+        
+        return i;        
+    }
 }
