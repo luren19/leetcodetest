@@ -11,4 +11,22 @@ public class Solution {
         }
         return count;        
     }
+    
+    public int RemoveElement2(int[] nums, int val) {
+        int i = 0;
+        int total = nums.Length;
+        while(i<total)
+        {
+            if(nums[i]==val)
+            {
+                nums[i]=nums[total-1];
+                total--;
+            }
+            else
+            {
+                i++;
+            }
+        }        
+        return total;        
+    }
 }
