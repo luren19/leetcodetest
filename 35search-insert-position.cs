@@ -47,7 +47,7 @@ public class Solution {
         else if(nums[mindex]<target)
         {
             sindex = mindex + 1;
-            return BinarySearch(nums,target,sindex,eindex);
+            //return BinarySearch(nums,target,sindex,eindex);
         }
         else
         {
@@ -56,7 +56,8 @@ public class Solution {
             {
                 eindex = sindex;
             }
-            return BinarySearch(nums,target,sindex,eindex);
+            //return BinarySearch(nums,target,sindex,eindex);
         }
+        return BinarySearch(nums,target,sindex,eindex);
     }
 }
