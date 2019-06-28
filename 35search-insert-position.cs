@@ -17,6 +17,29 @@ public class Solution {
     }
     
     public int SearchInsert2(int[] nums, int target) {
+        int left = 0;
+        int right = nums.Length-1;
+        int mindex;
+        while(left<=right)
+        {
+            mindex = (right-left)/2+left;
+            if(nums[mindex]==target)
+            {
+                return mindex;
+            }
+            if(nums[mindex]<target)
+            {
+                left=mindex+1;
+            }
+            else
+            {
+                right=mindex-1;
+            }
+        }
+        return left;
+    }
+    
+    public int SearchInsert3(int[] nums, int target) {
         if(nums.Length == 0)
         {
             return 0;
