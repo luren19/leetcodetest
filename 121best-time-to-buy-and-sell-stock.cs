@@ -16,7 +16,7 @@ public class Solution {
         return maxprofit;
     }
     
-    public int MaxProfit(int[] prices) {
+    public int MaxProfit-DP(int[] prices) {
         int maxprofit = 0;
         int len = prices.Length;
         if(len<2)
@@ -35,6 +35,19 @@ public class Solution {
             {
                 maxprofit = prices[i]-minprice;
             }
+        }
+        return maxprofit;
+    }
+
+        public int MaxProfit-Kadane(int[] prices) {
+        int maxprofit = 0;
+        int maxcurprofit = 0;
+        int len = prices.Length;
+
+        for(int i=1;i<len;i++)
+        {
+            maxcurprofit = Math.Max(0,maxcurprofit + prices[i] - prices[i-1]);
+            maxprofit = Math.Max(maxprofit,maxcurprofit);
         }
         return maxprofit;
     }
