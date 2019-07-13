@@ -33,4 +33,32 @@ public class Solution {
         }
         return result;
     }
+    
+    public string AddBinary2(string a, string b) {       
+        int plus = 0;
+        int sum = 0;
+        string result = "";
+        int i=a.Length-1;
+        int j=b.Length-1;
+        while(i>=0||j>=0)
+        {
+            sum = plus;
+            if(i>=0)
+            {
+                sum += a[i--]-'0';
+            }
+            if(j>=0)
+            {
+                sum += b[j--]-'0';
+            }
+            plus = sum/2;
+            result = sum%2 + result;
+            //Console.WriteLine($"{sum},{plus},{result},{i},{j}");
+        }
+        if(plus>0)
+        {
+            result = plus + result;
+        }
+        return result;
+    }
 }
