@@ -55,19 +55,6 @@ public class Solution {
         {
             return x;
         }
-        int result = x;
-        while(result>x/result)
-        {
-            result = (result + x/result)/2;
-        }
-        return result;
-    }
-    
-    public int MySqrt(int x) {
-        if(x<=1)
-        {
-            return x;
-        }
         long result = x;
         while(result*result>x)
         {
