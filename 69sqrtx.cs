@@ -49,4 +49,17 @@ public class Solution {
             //Console.WriteLine($"{left},{right},{mid}");
         }
     }
+    
+    public int MySqrt-Newton(int x) {
+        if(x<=1)
+        {
+            return x;
+        }
+        int result = x;
+        while(result>x/result)
+        {
+            result = (result + x/result)/2;
+        }
+        return result;
+    }
 }
