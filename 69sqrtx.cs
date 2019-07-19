@@ -62,4 +62,18 @@ public class Solution {
         }
         return result;
     }
+    
+    public int MySqrt(int x) {
+        if(x<=1)
+        {
+            return x;
+        }
+        long result = x;
+        while(result*result>x)
+        {
+            result = (result + x/result)/2;
+            //Console.WriteLine(Convert.ToInt32(result));
+        }
+        return Convert.ToInt32(result);
+    }
 }
