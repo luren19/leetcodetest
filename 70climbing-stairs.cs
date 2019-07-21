@@ -26,4 +26,11 @@ public class Solution {
         }
         return dp[n-1];
     }
+    
+    public int ClimbStairs-Fibonacci2(int n) {
+        int a = 1, b = 1;
+        while (n-- > 0)
+            a = (b += a) - a;
+        return a;
+    }
 }
