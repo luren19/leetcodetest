@@ -1,8 +1,8 @@
 public class Solution {
     public int Fib(int N) {
-        if(N==0)
+        if(N<=1)
         {
-            return 0;
+            return N;
         }
         int f0 = 0;
         int f1 = 1;
