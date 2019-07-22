@@ -33,4 +33,27 @@ public class Solution {
             a = (b += a) - a;
         return a;
     }
+    
+    public int ClimbStairs-bruteforce(int n) {
+        int[] memo = new int[n+1];
+        return ClimbStairs-bruteforce(0,n,memo);
+    }
+    
+    public int ClimbStairs-bruteforce(int i, int n, int[] memo)
+    {
+        if(i>n)
+        {
+            return 0;
+        }
+        if(i==n)
+        {
+            return 1;
+        }
+        if(memo[i]>0)
+        {
+            return memo[i];
+        }
+        memo[i]=ClimbStairs-bruteforce(i+1,n,memo)+ClimbStairs-bruteforce(i+2,n,memo);
+        return memo[i];
+    }
 }
