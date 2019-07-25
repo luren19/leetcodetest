@@ -33,5 +33,22 @@ public class Solution {
         }
         return preNode; 
     }
+    
+    public ListNode ReverseList-r2(ListNode head) {
+        return ReverseList(head,null); 
+    }
+    
+    public ListNode ReverseList(ListNode head, ListNode newhead) {
+        if(head==null)
+        {
+            return newhead;
+        }
+        else
+        {
+            ListNode next = head.next;
+            head.next = newhead;
+            return ReverseList(next,head);
+        }
+    }
 
 }
