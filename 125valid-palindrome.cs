@@ -31,4 +31,31 @@ public class Solution {
         }
         return true;
     }
+    
+    public bool IsPalindrome-2(string s) {        
+        int i = 0;
+        int j = s.Length -1;
+        
+        while(i<j)
+        {
+            if(!Char.IsLetterOrDigit(s[i]))
+            {
+                i++;
+            }
+            else if(!Char.IsLetterOrDigit(s[j]))
+            {
+                j--;
+            }
+            else if(Char.ToLower(s[i])!=Char.ToLower(s[j]))
+            {
+                return false;
+            } 
+            else
+            {
+                i++;
+                j--;
+            }
+        }
+        return true;
+    }
 }
