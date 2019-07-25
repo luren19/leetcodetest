@@ -29,4 +29,27 @@ public class Solution {
         }
         return fakeHead.next;
     }
+    
+    public ListNode DeleteDuplicates-recursive(ListNode head) {
+        //if current node is not unique, return deleteDuplicates with head.next.
+        //If current node is unique, link it to the result of next list made by recursive call. 
+
+        if(head == null)
+        {
+            return null;
+        }
+        if(head.next !=null && head.val == head.next.val)
+        {
+            while(head.next !=null && head.val == head.next.val)
+            {
+                head = head.next;
+            }
+            return DeleteDuplicates(head.next);
+        }
+        else
+        {
+            head.next = DeleteDuplicates(head.next);
+        }
+        return head;
+    }
 }
