@@ -2,7 +2,7 @@ public class Solution {
     public bool IsPalindrome(string s) {        
         int i = 0;
         int p = s.Length-1;
-        bool result = false;
+        
         while(i<=p)
         {
             while(i<s.Length && !Char.IsLetterOrDigit(s[i]))
