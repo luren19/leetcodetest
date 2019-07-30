@@ -9,24 +9,20 @@
  */
 public class Solution {
     public bool IsSameTree(TreeNode p, TreeNode q) {
+        // p and q are null
         if(p==null && q==null)
         {
             return true;
         }
-        else if(p==null || q==null)
+        // one of p and q is null
+        if(p==null || q==null)
         {
             return false;
         }
-        else if(p.val != q.val)
+        if(p.val != q.val)
         {
             return false;
         }
-        else
-        {
-            bool lres = IsSameTree(p.left,q.left);
-            bool rres = IsSameTree(p.right,q.right);
-            return (lres&&rres);
-        }
+        return (IsSameTree(p.left,q.left)&&IsSameTree(p.right,q.right));        
     }
-
 }
