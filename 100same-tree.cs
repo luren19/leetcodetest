@@ -57,4 +57,32 @@ public class Solution {
         
         return true;
     }
+    
+    public bool IsSymmetric-useiteration(TreeNode root) {
+        Queue q = new Queue(); 
+        q.Enqueue(root);
+        q.Enqueue(root);
+        while(q.Count!=0)
+        {
+            TreeNode q1 = (TreeNode)q.Dequeue();
+            TreeNode q2 = (TreeNode)q.Dequeue();
+            if(q1==null && q2==null)
+            {
+                continue;
+            }
+            if(q1==null || q2==null)
+            {
+                return false;
+            }
+            if(q1.val!=q2.val)
+            {
+                return false;
+            }
+            q.Enqueue(q1.left);
+            q.Enqueue(q2.right);
+            q.Enqueue(q1.right);
+            q.Enqueue(q2.left);
+        }
+        return true;
+    }
 }
