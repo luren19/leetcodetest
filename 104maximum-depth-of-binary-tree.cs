@@ -9,19 +9,10 @@
  */
 public class Solution {
     public int MaxDepth(TreeNode root) {
-        return MaxDepth(root, 0);
-    }
-    
-    public int MaxDepth(TreeNode current,int depth)
-    {
-        if(current==null)
+        if(root==null)
         {
-            return depth;
+            return 0;
         }
-        depth++;
-        int leftDepth = MaxDepth(current.left,depth);
-        int rightDepth = MaxDepth(current.right,depth);
-        depth = leftDepth>rightDepth?leftDepth:rightDepth;
-        return depth;
+        return 1+Math.Max(MaxDepth(root.left), MaxDepth(root.right));
     }
 }
