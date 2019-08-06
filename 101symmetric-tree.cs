@@ -26,10 +26,6 @@ public class Solution {
         {
             return false;
         }
-        if(left.val != right.val)
-        {
-            return false;
-        }
-        return IsSame(left.left,right.right) && IsSame(left.right,right.left);
+        return (left.val == right.val) && IsSame(left.left,right.right) && IsSame(left.right,right.left);
     }
 }
