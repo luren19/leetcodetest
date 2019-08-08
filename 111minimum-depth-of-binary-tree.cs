@@ -27,4 +27,18 @@ public class Solution {
         }
         return Math.Min(MinDepth(root.left),MinDepth(root.right))+1;
     }
+    
+    public int MinDepth(TreeNode root) {
+        if(root == null)
+        {
+            return 0;
+        }
+        int left = MinDepth(root.left);
+        int right = MinDepth(root.right);
+        if(root.left == null || root.right == null)
+        {
+            return left+right+1;
+        }
+        return Math.Min(left,right)+1;
+    }
 }
