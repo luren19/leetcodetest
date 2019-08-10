@@ -38,4 +38,29 @@ public class Solution {
         result.Reverse();
         return result;
     }
+    
+    public IList<IList<int>> LevelOrderBottom-recurse(TreeNode root) {        
+        var result = new List<IList<int>>();
+        LevelMaker(root,result,0);
+        result.Reverse();
+        return result;
+    }
+    public void LevelMaker(TreeNode root, List<IList<int>> list, int level)
+    {
+        //Console.WriteLine($"{list.Count},{level}");
+        if(root == null)
+        {
+            return;
+        }
+        //Console.WriteLine($"first:{list.Count},{level},{root.val}");
+        if(level >= list.Count)
+        {
+            list.Add(new List<int>());
+        }
+        LevelMaker(root.left,list,level+1);
+        LevelMaker(root.right,list,level+1);
+        
+        //Console.WriteLine($"second:{list.Count},{level},{root.val}");
+        list[level].Add(root.val);
+    }
 }
