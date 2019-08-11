@@ -32,4 +32,33 @@ public class Solution {
         LevelMaker(root.right,list,level+1);
                 
     }
+    
+    public IList<IList<int>> LevelOrder-iteration(TreeNode root) {        
+        var result = new List<IList<int>>();
+        if(root == null)
+        {
+            return result;
+        }
+        Queue<TreeNode> queue = new Queue<TreeNode>();
+        queue.Enqueue(root);
+        while(queue.Count !=0)
+        {
+            List<int> subList = new List<int>();
+            int levelNum = queue.Count;
+            for(int i=0;i<levelNum;i++)
+            {
+                if(queue.Peek().left!=null)
+                {
+                    queue.Enqueue(queue.Peek().left);
+                }
+                if(queue.Peek().right!=null)
+                {
+                    queue.Enqueue(queue.Peek().right);
+                }
+                subList.Add(queue.Dequeue().val);
+            }
+            result.Add(subList);
+        }
+        return result;
+    }
 }
