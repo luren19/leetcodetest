@@ -36,4 +36,17 @@ public class Solution {
         }
         return CheckSum(root.left,expect,currentSum+root.val) || CheckSum(root.right,expect,currentSum+root.val);
     }
+    
+    public bool HasPathSum-usesubtraction(TreeNode root, int sum) {
+        if(root==null)
+        {
+            return false;
+        }
+        if(root.left == null && root.right == null)
+        {
+            return sum == root.val;
+        }
+        sum = sum - root.val;
+        return HasPathSum(root.left,sum) || HasPathSum(root.right,sum);
+    }
 }
