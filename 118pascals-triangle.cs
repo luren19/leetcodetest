@@ -25,4 +25,22 @@ public class Solution {
         
         return triangle;
     }
+    
+    public IList<IList<int>> Generate2(int numRows) {
+        IList<IList<int>> triangle = new List<IList<int>>();
+        
+        List<int> row = new List<int>();
+        
+        for(int rowNum = 0; rowNum < numRows;rowNum++)
+        {
+            row.Insert(0,1);
+            for(int j = 1; j < row.Count-1; j++)
+            {
+                row[j] = row[j] + row[j+1];
+            }
+            triangle.Add(new List<int>(row));
+        }
+        
+        return triangle;
+    }
 }
