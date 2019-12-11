@@ -26,7 +26,7 @@ public class Solution {
     }
     
     //Imagine two runners running on a track at different speed. What happens when the track is actually a circle?
-    public bool HasCycle(ListNode head) {
+    public bool HasCycle2(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
         while(fast != null && fast.next !=null){
