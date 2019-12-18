@@ -27,4 +27,25 @@ public class Solution {
         }
         return null;
     }
+    
+    //use 2 points
+    public int[] TwoSum2(int[] numbers, int target) {
+        int p = 0;
+        int q = numbers.Length-1;
+        while(p<q){
+            int sum = numbers[p] + numbers[q];
+            if(sum == target){
+                return new int[2]{p+1,q+1};
+            }
+            else if(sum < target){
+                p++;
+            }
+            else{
+                q--;
+            }
+        }
+        return null;
+    }
 }
+
+
