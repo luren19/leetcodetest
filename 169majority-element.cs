@@ -27,4 +27,12 @@ public class Solution {
         
         return maxitem.Key;*/     
     }
+    
+    // Use sorting
+    public int MajorityElement2(int[] nums) {
+        Array.Sort(nums);
+        return nums[nums.Length/2];
+    }
+    
+   
 }
