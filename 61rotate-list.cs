@@ -17,10 +17,13 @@ public class Solution {
             count++;
         }
         head.next = start;
-        count = count - k % count;
-        while(count > 0){
+        k = k % count;
+        if(k > 0) {
+            count = count - k;
+            while(count > 0){
             head = head.next;
             count--;
+            }
         }
         start = head.next;
         head.next = null;
