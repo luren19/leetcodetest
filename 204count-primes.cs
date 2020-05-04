@@ -19,4 +19,21 @@ public class Solution {
         }
         return count;
     }
+    
+    public int CountPrimes2(int n) {
+        if(n<=1) return 0;
+        bool[] NotPrimes = new bool[n];
+        NotPrimes[0] = true;
+        NotPrimes[1] = true;
+        int count = 0;
+        for(int i=2; i<n;i++){
+            if(!NotPrimes[i]){
+                count++;
+                for(int j=2;j*i<n;j++){
+                    NotPrimes[j*i]=true;
+                }                
+            }
+        }
+        return count;
+    }
 }
